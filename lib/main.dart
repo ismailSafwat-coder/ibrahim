@@ -1,4 +1,5 @@
 import 'package:ebrahim2/homepage.dart';
+import 'package:ebrahim2/model.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,12 +13,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'earthworm',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const ImagePickerScreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const SplashScreen(),
+        '/login': (context) => const LoginScreen(),
+        '/home': (context) => const HomeScreen(),
+        '/ImagePickerScreen': (context) => const ImagePickerScreen(),
+        '/result': (context) => const ResultScreen(),
+      },
     );
   }
 }

@@ -243,11 +243,16 @@ class _ImagePickerScreenState extends State<ImagePickerScreen> {
                       // Use Stack to layer widgets
                       alignment: Alignment.center,
                       children: [
-                        Image.file(
-                          _image!,
-                          fit: BoxFit.contain,
-                          width: double.infinity,
-                          height: double.infinity,
+                        Container(
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey, width: 2)),
+                          margin: const EdgeInsets.symmetric(horizontal: 15),
+                          child: Image.file(
+                            _image!,
+                            fit: BoxFit.cover,
+                            width: MediaQuery.sizeOf(context).height * 0.4,
+                            height: MediaQuery.sizeOf(context).height * 0.3,
+                          ),
                         ),
                         CustomPaint(
                           // Draw painter on top
@@ -258,7 +263,7 @@ class _ImagePickerScreenState extends State<ImagePickerScreen> {
                     ),
             ),
             Padding(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -289,8 +294,8 @@ class _ImagePickerScreenState extends State<ImagePickerScreen> {
               ),
             ),
             // Detection counters
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            Container(
+              margin: const EdgeInsets.only(bottom: 55),
               child: Column(
                 children: [
                   Text(
